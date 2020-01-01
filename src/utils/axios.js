@@ -1,7 +1,7 @@
 // 说明：
 // 1.接口请求已经封装了loading的打开与关闭, 如果在接口请求之前或拿到值之后有复杂计算可以单独写方法处理并添加loading
 // 2.需要额外引入loading组件和弹窗提示组件
-// 3.如果是单个后台对接可以用baseURL,对接多个后台地址在请求的时候用全局变量可能好一点
+// 3.如果是单个后台对接可以加入baseURL,对接多个后台地址在请求的时候用全局变量可能好一点
 class HttpRequest {
     constructor() {
         // 表示当前是否有接口正在请求(优化loading显示)
@@ -15,7 +15,7 @@ class HttpRequest {
         return config;
     }
     /**
-     * @description: 请求拦截与相应拦截
+     * @description: 请求拦截与响应拦截
      * @param {Object} [instance] axios实例
      * @param {String} [url] 请求url
      * @return: {void}
@@ -36,6 +36,7 @@ class HttpRequest {
             // showModel('连接服务器失败，请稍后再试！');
             return Promise.reject(error);
         });
+        // 响应拦截
         instance.interceptors.response.use(res => {
             this.distroy(url);
             // 其他不规范的接口直接返回
