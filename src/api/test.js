@@ -1,24 +1,18 @@
 // 示例
 import axios from './index'
-// post待测试
-export const postWeatherData = ({ city, key }) => {
+
+export const postWeatherData = (payload) => {
     return axios.request({
-        url: `${__GATEWAYPATH__}/simpleWeather/query`,
+        url: `${__GATEWAYPATH__}/xxx/xx`,
         method: 'post',
-        data: {
-            city,
-            key
-        }
+        data: payload
     })
 }
 
-export const getWeatherData = ({ city, key }) => {
+export const getWeatherData = (payload) => {
     return axios.request({
         url: `${__GATEWAYPATH__}/simpleWeather/query`,
         method: 'get',
-        params: {
-            city,
-            key
-        }
+        params: payload
     })
 }

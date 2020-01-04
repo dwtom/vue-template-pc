@@ -1,3 +1,10 @@
+/*
+ * @Description: 封装axios类
+ * @Author: Dong Wei
+ * @Date: 2020-01-01 17:46:42
+ * @LastEditors  : Dong Wei
+ * @LastEditTime : 2020-01-04 23:01:26
+ */
 // 说明：
 // 1.接口请求已经封装了loading的打开与关闭, 如果在接口请求之前或拿到值之后有复杂计算可以单独写方法处理并添加loading
 // 2.需要额外引入loading组件和弹窗提示组件
@@ -73,7 +80,7 @@ class HttpRequest {
     request(options) {
         const instance = axios.create();
         options = Object.assign(this.getInsideConfig(), options);
-        this.interceptors(instance, options.url)
+        this.interceptors(instance, options.url);
         return instance(options);
     }
 }
