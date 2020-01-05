@@ -1,7 +1,12 @@
 export default {
     // test
     async getUserInfo({ commit }, payload) {
-        // await some ajax return
-        commit('setUserInfo', payload);
+        try {
+            // await some ajax return
+            // const res = await ...
+            commit('setUserInfo', payload);
+        } catch (err) {
+            console.log(err);
+        }
     }
 };
